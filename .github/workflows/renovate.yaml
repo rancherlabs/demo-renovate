@@ -23,7 +23,7 @@ jobs:
           installation_id: ${{ secrets.RENOVATE_INSTALLATION_ID }}
           private_key: ${{ secrets.RENOVATE_PRIVATE_KEY }}
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@708343d5c41dfd577133569d3153b3e089bac520 # tag=v34.41.1
+        uses: renovatebot/github-action@cf2f911ffe551c48f7c5cbc0c774f8377ea05156 # v34.51.0
         env:
           # Repository taken from variable to keep configuration file generic
           RENOVATE_REPOSITORIES: ${{ github.repository }}
