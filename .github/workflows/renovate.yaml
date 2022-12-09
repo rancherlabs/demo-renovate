@@ -1,4 +1,5 @@
 name: Renovate
+concurrency: renovate
 on:
   # Allows manual/automated ad-hoc trigger
   workflow_dispatch:
