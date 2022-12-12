@@ -68,17 +68,32 @@
       "allowedVersions": "<2.8.0",                                                                                                                                                                                                                                                                                            
       "groupName": "ui-dashboard-envs"                                                                                                                                                                                                                                                                                        
     },
-    {                                                                                                                                                                                                                                                                                                                         
-      "matchPackagePatterns": ["registry.suse.com/bci/bci-base"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "stabilityDays": 3,
-      "automerge": true
+    {
+      "matchManagers": ["dockerfile"],
+      "matchPackagePatterns": ["registry.suse.com/"],
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "schedule": ["every weekend after 4am"]
     },
-    {                                                                                                                                                                                                                                                                                                                         
+    {
+      "matchPackagePatterns": ["rancher/dapper"],
+      "allowedVersions": "<1.0.0",
+      "automerge": true,
+      "schedule": ["every weekend after 4am"]
+    },
+    {
+      "matchManagers": ["droneci"],
+      "matchPackagePatterns": ["plugins/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "schedule": ["every weekend after 4am"]
+    },
+    {
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
-      "pinDigests": true
+      "pinDigests": true,
+      "schedule": ["every weekend after 4am"]
     }
   ]
 }
