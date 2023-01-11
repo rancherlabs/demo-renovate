@@ -1,9 +1,6 @@
 {
+  "extends": ["github>rancher/renovate-config#main"],
   "baseBranches": ["main", "release/v9.9"],
-  "rebaseWhen": "conflicted",
-  "labels": ["dependencies"],
-  "prHourlyLimit": 2,
-  "automergeStrategy": "merge-commit",
   "regexManagers": [
     {
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile[^/]*$"],
@@ -13,20 +10,8 @@
     },
     {
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile[^/]*$"],
-      "matchStrings": ["ENV KUSTOMIZE_VERSION (?<currentValue>.*?)\\n"],
-      "depNameTemplate": "kubernetes-sigs/kustomize",
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile[^/]*$"],
       "matchStrings": ["ENV CATTLE_MACHINE_VERSION (?<currentValue>.*?)\\n"],
       "depNameTemplate": "rancher/machine",
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile[^/]*$"],
-      "matchStrings": ["ENV HELM_VERSION (?<currentValue>.*?)\\n"],
-      "depNameTemplate": "helm/helm",
       "datasourceTemplate": "github-releases"
     },
     {
@@ -53,11 +38,6 @@
       "matchPackagePatterns": ["k3s"],
       "groupName": "k3s",
       "allowedVersions": "<1.25.0"
-    },
-    {
-      "matchPackagePatterns": ["kustomize"],
-      "extractVersion": "^kustomize\/(?<version>.*)$",
-      "groupName": "kustomize"
     },
     {
       "matchPackagePatterns": ["rancher/ui"],
